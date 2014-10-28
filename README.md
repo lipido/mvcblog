@@ -1,7 +1,7 @@
 mvcblog
 =======
 
-A Simple Model-View-Controller Blog Example, for educational purposes. The MVC framework is embedded in the application itself, it is not a separate library, so all the code can be easily explored in order to understand how the action-based MVC works.
+A Simple Model-View-Controller Blog Example written PHP, for educational purposes. The MVC framework is embedded in the application itself, it is not a separate library, so all the code can be easily explored in order to understand how the action-based MVC works.
 
 **Note: This is an educational project. If you are looking for a framework for a professional project, I recommend you to use any other MVC framework (there are many out there!).**
 
@@ -13,7 +13,7 @@ The main MVC components are implemented in the following way:
 
 In addition to the minimum components, this example contains:
 
-- A view helper class (ViewManager), which includes a layout system for the views.
+- A view helper class (ViewManager), which includes a layout system for the views. All your views are embedded inside _layouts_, which contain all the repetivive HTML (headers, footers, css declarations, etc). You can use more than one layout if you want (in the example, we use two layouts).
 - An simple internationalization helper class (I18n).
 
 # Requirements
@@ -58,3 +58,8 @@ Create a username for the database. The connection settings in the PHP code are 
 ```sql
 grant all privileges on mvcblog.* to mvcuser@localhost identified by "mvcblogpass";
 ```
+
+# TODO
+
+- Add a decent CSS.
+- Include the URL rewritting mechanism to get pretty urls.
