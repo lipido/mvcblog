@@ -3,9 +3,9 @@
 
 class PDOConnection {
   private static $dbhost = "localhost";
-  private static $dbname = "tswblog";
-  private static $dbuser = "tswuser";
-  private static $dbpass = "tswblogpass";
+  private static $dbname = "mvcblog";
+  private static $dbuser = "mvcuser";
+  private static $dbpass = "mvcblogpass";
   private static $db_singleton = null;
   
   public static function getInstance() {
