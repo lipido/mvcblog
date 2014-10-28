@@ -1,0 +1,10 @@
+@keyframes backgroundflash {    
+    75% { opacity:1.0}
+    100% {opacity:0.0; display:none}
+}
+
+#flash {
+  background-color:green;
+  animation: backgroundflash 5s forwards; 
+}
+
