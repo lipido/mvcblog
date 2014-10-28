@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Default controller if any controller is passed in the URL
+ */
+define("DEFAULT_CONTROLLER", "posts");
+
+/**
+ * Default action if any action is passed in the URL
+ */
+define("DEFAULT_ACTION", "index");
+
  /**
   * Main router (single entry-point for all requests)
   * of the MVC implementation.
@@ -23,6 +34,14 @@
  function run() {
   // invoke action!
   try {
+    if (!isset($_GET["controller"])) {
+      $_GET["controller"] = DEFAULT_CONTROLLER; 
+    }
+    
+    if (!isset($_GET["action"])) {
+      $_GET["action"] = DEFAULT_ACTION;
+    }
+    
     $controller = loadController($_GET["controller"]);
     $actionName = $_GET["action"];
     $controller->$actionName(); 
