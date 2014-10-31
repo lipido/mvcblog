@@ -43,7 +43,14 @@ function run() {
       $_GET["action"] = DEFAULT_ACTION;
     }
     
+    // Here is where the "magic" occurs.
+    // URLs like: index.php?controller=posts&action=add
+    // will provoke a call to: new PostsController()->add()
+    
+    // Instantiate the corresponding controller
     $controller = loadController($_GET["controller"]);
+    
+    // Call the corresponding action
     $actionName = $_GET["action"];
     $controller->$actionName(); 
   } catch(Exception $ex) {
