@@ -6,11 +6,12 @@ require_once(__DIR__."/../core/ValidationException.php");
 /**
  * Class User
  * 
- * Represents a User in the blog.
+ * Represents a User in the blog
  * 
  * @author lipido <lipido@gmail.com>
  */
 class User {
+
   /**
    * The user name of the user
    * @var string
@@ -73,7 +74,7 @@ class User {
   
   /**
    * Checks if the current user instance is valid
-   * for being registered in the database.
+   * for being registered in the database
    * 
    * @throws ValidationException if the instance is
    * not valid
