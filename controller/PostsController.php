@@ -113,6 +113,7 @@ class PostsController extends BaseController {
    * 
    * The views are:
    * <ul>
+   * <li>posts/add: If this action is reached via HTTP GET (via include)</li>   
    * <li>posts/index: If post was successfully added (via redirect)</li>
    * <li>posts/add: If validation fails (via include). Includes these view variables:</li>
    * <ul>
