@@ -243,6 +243,19 @@ class ViewManager {
     header("Location: index.php?controller=$controller&action=$action".(isset($queryString)?"&$queryString":""));
     die();
   }
+
+  /**
+   * Sends an HTTP 302 redirection to the refererring page, which
+   * is the page where the user was, just before making the current
+   * request.
+   *
+   * @param string $queryString An optional query string
+   * @return void
+   */
+  public function redirectToReferer($queryString=NULL) {    
+    header("Location: ".$_SERVER["HTTP_REFERER"].(isset($queryString)?"&$queryString":""));
+    die();
+  }
   
   /**
    * Renders the layout
