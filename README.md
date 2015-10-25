@@ -36,7 +36,7 @@ create table posts (
   id int auto_increment, 
   title varchar(255),
   content varchar(255), 
-  author varchar(255), 
+  author varchar(255) not null, 
 
   primary key (id), 
   foreign key (author) references users(username)
@@ -45,8 +45,8 @@ create table posts (
 create table comments (
   id int auto_increment,   
   content varchar(255), 
-  author varchar(255), 
-  post int, 
+  author varchar(255) not null, 
+  post int not null, 
   
   primary key (id),  
   foreign key (author) references users(username), 
