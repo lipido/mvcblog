@@ -106,12 +106,14 @@ class PostMapper {
 		       $post_wt_comments[0]["post.content"],
 		       new User($post_wt_comments[0]["post.author"]));
       $comments_array = array();
-      foreach ($post_wt_comments as $comment){
-	$comment = new Comment(	$comment["comment.id"],
-				$comment["comment.content"],
-				new User($comment["comment.author"]),
-				$post);
-	array_push($comments_array, $comment);				
+      if ($post_wt_comments[0]["comment.id"]!=null) {
+        foreach ($post_wt_comments as $comment){
+          $comment = new Comment( $comment["comment.id"],
+                                  $comment["comment.content"],
+                                  new User($comment["comment.author"]),
+                                  $post);
+          array_push($comments_array, $comment);
+        }
       }
       $post->setComments($comments_array);
       
