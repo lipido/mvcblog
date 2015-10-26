@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Change RewriteBase if this site is served inside another directory
+# after the document root. Here, we assume that the mvcblog is served
+# in http://host/mvcblog. If you are serving in, for example:
+# http://host/dir/subdir, change the RewriteBase to:
+# RewriteBase /dir/subdir/rest
+RewriteBase /mvcblog/rest
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
