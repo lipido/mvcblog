@@ -61,7 +61,7 @@ class PostMapper {
     $stmt->execute(array($postid));
     $post = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if(!sizeof($post) == 0) {
+    if($post != null) {
       return new Post(
 	$post["id"],
 	$post["title"],
