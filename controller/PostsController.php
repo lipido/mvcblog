@@ -161,7 +161,7 @@ class PostsController extends BaseController {
 	// We want to see a message after redirection, so we establish
 	// a "flash" message (which is simply a Session variable) to be
 	// get in the view after redirection.
-	$this->view->setFlash("Post \"".$post ->getTitle()."\" successfully added.");
+	$this->view->setFlash(sprintf(i18n("Post \"%s\" successfully added."),$post ->getTitle()));
 	
 	// perform the redirection. More or less: 
 	// header("Location: index.php?controller=posts&action=index")
@@ -329,7 +329,7 @@ class PostsController extends BaseController {
     // We want to see a message after redirection, so we establish
     // a "flash" message (which is simply a Session variable) to be
     // get in the view after redirection.
-    $this->view->setFlash("Post \"".$post ->getTitle()."\" successfully deleted.");    
+    $this->view->setFlash(sprintf(i18n("Post \"%s\" successfully deleted."),$post ->getTitle()));
     
     // perform the redirection. More or less: 
     // header("Location: index.php?controller=posts&action=index")
