@@ -29,10 +29,11 @@ class CommentMapper {
    * 
    * @param Comment $comment The comment to save
    * @throws PDOException if a database error occurs
-   * @return void
+   * @return int The new comment id
    */
   public function save(Comment $comment) {
     $stmt = $this->db->prepare("INSERT INTO comments(content, author, post) values (?,?,?)");
     $stmt->execute(array($comment->getContent(), $comment->getAuthor()->getUsername(), $comment->getPost()->getId()));    
+    return $this->db->lastInsertId();
   }
 }

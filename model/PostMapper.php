@@ -128,11 +128,12 @@ class PostMapper {
    * 
    * @param Post $post The post to be saved
    * @throws PDOException if a database error occurs
-   * @return void
+   * @return int The mew post id
    */    
   public function save(Post $post) {
     $stmt = $this->db->prepare("INSERT INTO posts(title, content, author) values (?,?,?)");
-    $stmt->execute(array($post->getTitle(), $post->getContent(), $post->getAuthor()->getUsername()));    
+    $stmt->execute(array($post->getTitle(), $post->getContent(), $post->getAuthor()->getUsername()));
+    return $this->db->lastInsertId();
   }
 
   /**
