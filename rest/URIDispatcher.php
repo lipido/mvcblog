@@ -122,21 +122,20 @@ class URIDispatcher {
     $pathTokens = explode("/", $path);
     $patternTokens = explode("/", $url_pattern);
 
+    if (sizeof($pathTokens) != sizeof($patternTokens)) {
+      return false;
+    }
+    
     $i = 0;
     $matched_parameters = array();
-    while ($i < sizeof($pathTokens) && $i < sizeof($patternTokens)) {
+    for ($i = 0; $i < sizeof($pathTokens); $i++) {
       if ($pathTokens[$i] != $patternTokens[$i]) {
         if (preg_match('/\$([0-9]+?)/', $patternTokens[$i], $matches)==1) {
           $matched_parameters[$matches[1]] = $pathTokens[$i];
         } else {
           return false;
         }
-      }
-      $i=$i+1;
-    }
-
-    if ($i < sizeof($pathTokens)) {
-      return false;
+      }      
     }
 
     if (sizeof($matched_parameters) > 0) {
