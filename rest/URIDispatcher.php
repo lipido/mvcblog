@@ -82,7 +82,7 @@ class URIDispatcher {
         // and add it as a final parameter
         if ($mapping["parse_json_input"] &&
             isset($_SERVER['CONTENT_TYPE']) &&
-            $_SERVER['CONTENT_TYPE'] == 'application/json') {
+            strpos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) {
 
           array_push($parameters, json_decode(file_get_contents("php://input")));
         }
