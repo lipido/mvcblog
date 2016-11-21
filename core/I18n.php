@@ -78,6 +78,15 @@ class I18n {
 		}
 		return self::$i18n_singleton;
 	}
+
+	/**
+	* Gets all the messages in the current language
+	*
+	* @return mixed Array of translations
+	*/
+	public function getAllMessages() {
+		return $this->messages;
+	}
 }
 
 /**
