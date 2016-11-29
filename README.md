@@ -5,6 +5,9 @@ A Simple Model-View-Controller Blog Example written PHP, for educational purpose
 
 **Note: This is an educational project. If you are looking for a framework for a professional project, I recommend you to use any other MVC framework (there are many out there!).**
 
+**New! An alternative (beta), component-based (or pull) example is also available at
+ [https://github.com/lipido/mvcblog-pull](https://github.com/lipido/mvcblog-pull)**
+
 The main MVC components are implemented in the following way:
 
 1. **Model**. Each domain entity is a class. In addition to domain classes, there are _data mappers_ which are responsible of SQL sentences needed to retrieve and save instances of the domain objects from and into the database. For example Post and PostMapper are domain objects and _data mappers_, respectively.
@@ -26,30 +29,30 @@ Connect to MySQL console and paste this script.
 ```sql
 create database mvcblog;
 use mvcblog;
-create table users ( 
-		username varchar(255), 
-		passwd varchar(255), 
-		primary key (username) 
+create table users (
+		username varchar(255),
+		passwd varchar(255),
+		primary key (username)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
-create table posts ( 
-	id int auto_increment, 
+create table posts (
+	id int auto_increment,
 	title varchar(255),
-	content varchar(255), 
-	author varchar(255) not null, 
+	content varchar(255),
+	author varchar(255) not null,
 
-	primary key (id), 
+	primary key (id),
 	foreign key (author) references users(username)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
 create table comments (
 	id int auto_increment,	 
-	content varchar(255), 
-	author varchar(255) not null, 
-	post int not null, 
-	
-	primary key (id),	
-	foreign key (author) references users(username), 
+	content varchar(255),
+	author varchar(255) not null,
+	post int not null,
+
+	primary key (id),
+	foreign key (author) references users(username),
 	foreign key (post) references posts(id) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 ```
