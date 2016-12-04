@@ -87,4 +87,4 @@ grant all privileges on mvcblog.* to mvcuser@localhost identified by "mvcblogpas
 # TODO
 
 - Add a decent CSS.
-- Include the URL rewritting mechanism to get pretty urls.
+- Include the URL rewriting mechanism to get pretty urls.
