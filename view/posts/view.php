@@ -29,9 +29,9 @@ $view->setVariable("title", "View Post");
 
 	<form method="POST" action="index.php?controller=comments&amp;action=add">
 		<?= i18n("Comment")?>:<br>
-		<?= isset($errors["content"])?$errors["content"]:"" ?><br>
+		<?= isset($errors["content"])?i18n($errors["content"]):"" ?><br>
 		<textarea type="text" name="content"><?=
-		$newcomment->getContent();
+		htmlentities($newcomment->getContent());
 		?></textarea>
 		<input type="hidden" name="id" value="<?= $post->getId() ?>" ><br>
 		<input type="submit" name="submit" value="<?=i18n("do comment") ?>">

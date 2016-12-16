@@ -32,6 +32,10 @@ array(
 	"Spanish" => "Español",
 	"English" => "Inglés",
 	"Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
-	"are you sure?" => "¿Estás seguro?"
+	"are you sure?" => "¿Estás seguro?",
+	"content is mandatory" => "El contenido es obligatorio",
+	"title is mandatory" => "El título es obligatorio",
+	"author is mandatory" => "El autor es obligatorio",
+	"post is not valid" => "El artículo no es válido"
 )
 ?>
