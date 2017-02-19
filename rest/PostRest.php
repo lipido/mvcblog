@@ -84,6 +84,7 @@ class PostRest extends BaseRest {
 
 		} catch (ValidationException $e) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
+			header('Content-Type: application/json');
 			echo(json_encode($e->getErrors()));
 		}
 	}
@@ -142,6 +143,7 @@ class PostRest extends BaseRest {
 			header($_SERVER['SERVER_PROTOCOL'].' 200 Ok');
 		}catch (ValidationException $e) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
+			header('Content-Type: application/json');
 			echo(json_encode($e->getErrors()));
 		}
 	}
@@ -191,6 +193,7 @@ class PostRest extends BaseRest {
 
 		}catch(ValidationException $e) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
+			header('Content-Type: application/json');
 			echo(json_encode($e->getErrors()));
 		}
 	}

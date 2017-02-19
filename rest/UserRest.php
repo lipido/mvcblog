@@ -32,6 +32,7 @@ class UserRest extends BaseRest {
 			header("Location: ".$_SERVER['REQUEST_URI']."/".$data->username);
 		}catch(ValidationException $e) {
 			http_response_code(400);
+			header('Content-Type: application/json');
 			echo(json_encode($e->getErrors()));
 		}
 	}
