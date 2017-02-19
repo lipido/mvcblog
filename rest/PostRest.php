@@ -98,6 +98,7 @@ class PostRest extends BaseRest {
 		}
 
 		$post_array = array(
+			"id" => $post->getId(),
 			"title" => $post->getTitle(),
 			"content" => $post->getContent(),
 			"author_id" => $post->getAuthor()->getusername()
@@ -110,7 +111,7 @@ class PostRest extends BaseRest {
 			array_push($post_array["comments"], array(
 				"id" => $comment->getId(),
 				"content" => $comment->getContent(),
-				"author" => $comment->getAuthor()
+				"author" => $comment->getAuthor()->getusername()
 			));
 		}
 
