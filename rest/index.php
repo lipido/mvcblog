@@ -15,8 +15,12 @@ foreach($files_in_script_dir as $filename) {
 try{
 
 	//	error_reporting(E_ERROR);
-
-	$dispatched = URIDispatcher::getInstance()->dispatchRequest();
+	$dispatcher = URIDispatcher::getInstance();
+	
+	// enable CORS (allow other sites to use your API)
+	$dispatcher->enableCORS('*','origin, content-type, accept, authorization');
+	
+	$dispatched = $dispatcher->dispatchRequest();
 
 	if (!$dispatched) {
 		header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
