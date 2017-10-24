@@ -153,7 +153,6 @@ class PostRest extends BaseRest {
 		$currentUser = parent::authenticateUser();
 		$post = $this->postMapper->findById($postId);
 
-		print_r($post);
 		if ($post == NULL) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			echo("Post with id ".$postId." not found");
@@ -168,7 +167,7 @@ class PostRest extends BaseRest {
 
 		$this->postMapper->delete($post);
 
-		header($_SERVER['SERVER_PROTOCOL'].' 200 Ok');
+		header($_SERVER['SERVER_PROTOCOL'].' 204 No Content');
 	}
 
 	public function createComment($postId, $data) {
