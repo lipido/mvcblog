@@ -95,6 +95,7 @@ class PostRest extends BaseRest {
 		if ($post == NULL) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			echo("Post with id ".$postId." not found");
+			return;
 		}
 
 		$post_array = array(
@@ -127,12 +128,14 @@ class PostRest extends BaseRest {
 		if ($post == NULL) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			echo("Post with id ".$postId." not found");
+			return;
 		}
 
 		// Check if the Post author is the currentUser (in Session)
 		if ($post->getAuthor() != $currentUser) {
 			header($_SERVER['SERVER_PROTOCOL'].' 403 Forbidden');
 			echo("you are not the author of this post");
+			return;
 		}
 		$post->setTitle($data->title);
 		$post->setContent($data->content);
@@ -177,6 +180,7 @@ class PostRest extends BaseRest {
 		if ($post == NULL) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			echo("Post with id ".$postId." not found");
+			return;
 		}
 
 		$comment = new Comment();
