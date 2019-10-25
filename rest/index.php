@@ -26,7 +26,7 @@ try{
 		die("no dispatcher found for this request");
 	}
 
-} catch(Exception $ex) {
+} catch(Throwable $ex) {
 	header($_SERVER['SERVER_PROTOCOL'].' 500 Internal server error');
 	header("Content-Type: application/json");
 	die(json_encode(array("error" => $ex->getMessage())));
