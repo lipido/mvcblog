@@ -80,8 +80,10 @@ create table comments (
 # Create username for the database
 Create a username for the database. The connection settings in the PHP code are
 in /core/PDOConnection.php
+
 ```sql
-grant all privileges on mvcblog.* to mvcuser@localhost identified by "mvcblogpass";
+CREATE USER 'mvcuser'@'localhost' IDENTIFIED BY 'mvcblogpass';
+GRANT ALL PRIVILEGES ON mvcblog.* TO 'mvcuser'@'localhost' WITH GRANT OPTION;
 ```
 
 # TODO
